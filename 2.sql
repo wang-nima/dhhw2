@@ -84,3 +84,14 @@ INSERT INTO user_sdo_geom_metadata
 CREATE INDEX tram_idx
    ON tramstops(shape)
    INDEXTYPE IS MDSYS.SPATIAL_INDEX;
+
+
+-- test
+-- select t.tram_id, t.shape
+-- from tramstops t
+-- where SDO_INSIDE(
+--   t.shape,
+--   SDO_GEOMETRY(2003,NULL,NULL,
+--     SDO_ELEM_INFO_ARRAY(1,1003,3),
+--     SDO_ORDINATE_ARRAY(162,381,264,483))
+-- ) ='TRUE';
