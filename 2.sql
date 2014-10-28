@@ -1,0 +1,3 @@
+CREATE TABLE tramstops (
+  tram_id VARCHAR2(10) PRIMARY KEY,
+  shape SDO_GEOMETRY);
