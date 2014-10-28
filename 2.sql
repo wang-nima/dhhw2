@@ -65,3 +65,22 @@ NULL,
 SDO_ELEM_INFO_ARRAY(1,1003,4),
 SDO_ORDINATE_ARRAY(378,360,478,460,378,560)));
 
+
+INSERT INTO user_sdo_geom_metadata
+    (TABLE_NAME,
+     COLUMN_NAME,
+     DIMINFO,
+     SRID)
+  VALUES (
+  'tramstops',
+  'shape',
+  SDO_DIM_ARRAY(   -- 20X20 grid
+    SDO_DIM_ELEMENT('X', 0, 1000, 0.005),
+    SDO_DIM_ELEMENT('Y', 0, 1000, 0.005)
+     ),
+  NULL   -- SRID
+);
+
+CREATE INDEX tram_idx
+   ON tramstops(shape)
+   INDEXTYPE IS MDSYS.SPATIAL_INDEX;
